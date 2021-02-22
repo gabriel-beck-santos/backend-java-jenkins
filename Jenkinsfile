@@ -26,11 +26,15 @@ pipeline {
 
             }
         }
+    //sh 'maven -version'
+    //sh 'mvn clean install'
 
     //Maven Clean package
         stage('Build Maven') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+               withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') {
+                   sh 'mvn clean package'
+                }
             }
         }    
 

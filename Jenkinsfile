@@ -30,8 +30,7 @@ pipeline {
     //Maven Clean package
         stage('Build Maven') { 
             steps {
-                sh 'mvn -version'
-                sh 'mvn clean install' 
+                sh 'mvn -B -DskipTests clean package' 
             }
         }    
 

@@ -25,13 +25,13 @@ pipeline {
                 sh 'docker rmi --force "$IMAGE_NAME"'
 
             }
-        }*/
+        }
 
     //Maven Clean package
-    stages {
-        stage('Build') { 
+        stage('Build Maven') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'mvn -version'
+                sh 'mvn clean install' 
             }
         }    
 

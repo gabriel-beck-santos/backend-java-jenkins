@@ -8,6 +8,7 @@ pipeline {
 
     }
 
+   
     // Apaga os dados do Workspace usando o plugin Workspace Cleanup Plugin
     stages {
         stage ('CleanResources') {
@@ -31,10 +32,11 @@ pipeline {
 
     //Maven Clean package
         stage('Build Maven') { 
+             tools {
+                 jdk 'JDK11'
+                 }
             steps {
-               withMaven(jdk: 'JDK11', maven: 'MAVEN_HOME') {
-                   sh 'mvn clean install'
-                }
+                sh './mvnw clean install'
             }
         }    
 

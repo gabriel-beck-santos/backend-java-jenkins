@@ -36,6 +36,7 @@ pipeline {
                  jdk 'JDK11'
                  }
             steps {
+                sh 'chmod +x mvnw'
                 sh './mvnw clean install'
             }
         }    
